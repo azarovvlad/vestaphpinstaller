@@ -122,7 +122,7 @@ function _usage () {
 #    fi
 #else
 #    _usage
-fi
+#fi
 
 MIDDLEWARE_PHP_CONF=$ENV_PHP_CONFIG_PATH/$MIDDLEWARE_PHP_VERSION
 
