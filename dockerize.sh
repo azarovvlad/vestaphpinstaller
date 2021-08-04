@@ -107,22 +107,22 @@ function _usage () {
     exit 1
 }
 
-#function _check_tag () {
-#    curl --silent -f -lSL https://index.docker.io/v1/repositories/$DOCKER_HUB_REPO/tags/$1 > /dev/null
-#}
+function _check_tag () {
+    curl --silent -f -lSL https://index.docker.io/v1/repositories/$DOCKER_HUB_REPO/tags/$1 > /dev/null
+}
 
-#if [ -n "$1" ]; then
-    TAG=74
-#    if _check_tag $TAG; then
+if [ -n "$1" ]; then
+    TAG=`echo $1 | tr -d .`
+    if _check_tag $TAG; then
         echo "Install $TAG"
         MIDDLEWARE_PHP_VERSION=$TAG
         MIDDLEWARE_PHP_PORT=90$TAG
-#    else
-#        _usage
-#    fi
-#else
-#    _usage
-#fi
+    else
+        _usage
+    fi
+else
+    _usage
+fi
 
 MIDDLEWARE_PHP_CONF=$ENV_PHP_CONFIG_PATH/$MIDDLEWARE_PHP_VERSION
 
