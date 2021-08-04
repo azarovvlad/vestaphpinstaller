@@ -108,7 +108,7 @@ function _usage () {
 }
 
 function _check_tag () {
-    curl --silent -f -lSL https://index.docker.io/v1/repositories/$DOCKER_HUB_REPO/tags/$1 > /dev/null
+#    curl --silent -f -lSL https://index.docker.io/v1/repositories/$DOCKER_HUB_REPO/tags/$1 > /dev/null
 }
 
 if [ -n "$1" ]; then
